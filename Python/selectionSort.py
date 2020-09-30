@@ -7,7 +7,8 @@ for i in range(len(arr)):
         if arr[min_idx] > arr[j]:
             min_idx = j
 
-    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    if min_idx != i:
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
 
 
 for i in range(len(arr)):
