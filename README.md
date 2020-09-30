@@ -6,17 +6,17 @@ Data Structures are broadly divided into two categories:
 Linear Data Structures
 Non-linear Data Structures
 
-Linear Data Structures ____________________  Array
+<pre>Linear Data Structures ____________________  Array
                                   |
                                   |________  Stack
                                   |
                                   |________  Queue
                                   |
-                                  |________  Linked List
+                                  |________  Linked List</pre>
                             
-Non-linear Data Structures ________________  Graph
+<pre>Non-linear Data Structures ________________  Graph
                                   |
-                                  |________  Tree
+                                  |________  Tree</pre>
                                   
 # Contribution Guidelines
 
