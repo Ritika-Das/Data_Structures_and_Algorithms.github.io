@@ -1,51 +1,40 @@
 Upload your DSA-related code files in C++ language here.
 
-// C++ program for implementation of selection sort 
 #include <bits/stdc++.h> 
 using namespace std; 
 
-void swap(int *x, int *y) 
+int binarySearch(int arr[], int l, int r, int x) 
 { 
-	int temp = *x; 
-	*x = *y; 
-	*y = temp; 
-} 
+	if (r >= l) { 
+		int mid = l + (r - l) / 2; 
 
-void sort(int arr[], int n) 
-{ 
-	int i, j, min_idx; 
+		// If the element is present at the middle 
+		// itself 
+		if (arr[mid] == x) 
+			return mid; 
 
-	// One by one move boundary of unsorted subarray 
-	for (i = 0; i < n-1; i++) 
-	{ 
-		// Find the minimum element in unsorted array 
-		min_idx = i; 
-		for (j = i+1; j < n; j++) 
-		if (arr[j] < arr[min_idx]) 
-			min_idx = j; 
+		// If element is smaller than mid, then 
+		// it can only be present in left subarray 
+		if (arr[mid] > x) 
+			return binarySearch(arr, l, mid - 1, x); 
 
-		// Swap the found minimum element with the first element 
-		swap(&arr[min_idx], &arr[i]); 
+		// Else the element can only be present 
+		// in right subarray 
+		return binarySearch(arr, mid + 1, r, x); 
 	} 
+
+	// We reach here when element is not 
+	// present in array 
+	return -1; 
 } 
 
-/* Function to print an array */
-
-void printArray(int arr[], int size) 
+int main(void) 
 { 
-	int i; 
-	for (i=0; i < size; i++) 
-		cout << arr[i] << " "; 
-	cout << endl; 
-} 
-
-int main() 
-{ 
-	int arr[] = {64, 25, 12, 22, 11}; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
-	sort(arr, n); 
-	cout << "Sorted array is \n"; 
-	printArray(arr, n); 
+	int arr[] = { 2, 3, 4, 10, 40 }; 
+	int x = 10; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	int result = binarySearch(arr, 0, n - 1, x); 
+	(result == -1) ? cout << "Element is not present in array"
+				: cout << "Element is present at index " << result; 
 	return 0; 
 } 
-
