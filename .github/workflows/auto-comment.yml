@@ -1,15 +1,3 @@
-name: Auto Comment
-on: [issues, pull_request]
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: bubkoo/auto-comment@v1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          issuesOpened: >
-            Thank you for raising a issue @${author}! @Ritika-Das will try and get back to you as soon as possible :)
-            Please make sure you have given as much context as possible.
-          pullRequestOpened: >
-            Thank you for your pull request @${author}! 
-            Please make sure you have followed our contributing guidelines. @Ritika-Das will check the changes to be merged soon :)
+
+- name: Auto Comment
+  uses: bubkoo/auto-comment@v1.0.1
