@@ -61,7 +61,7 @@ There can be hundreds of algorithms to shape your task. Here are ones for you to
                                   |
                                   |__________ Counting Sort
                                   |
-                                  |__________ Radix Sort</pre>
+                                  |__________ Radix Sort</pre> 
 
 # Contribution Guidelines<br>
 * Anyone is free to contribute to this repository.<br>
