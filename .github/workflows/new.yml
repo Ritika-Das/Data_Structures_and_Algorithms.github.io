@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Greet and Stats!
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: pull_request
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            // Get a list of all issues created by the PR opener
+            // See: https://octokit.github.io/rest.js/#pagination
+            const creator = context.payload.sender.login
+            const opts = github.issues.listForRepo.endpoint.merge({
+              ...context.issue,
+              creator,
+              state: 'all'
+            })
+            
+            const issues = await github.paginate(opts)
+            const pullRequest=context.payload.pull_request.head.ref;
+            const create=context.payload.pull_request.created_at;
+            const update=context.payload.pull_request.updated_at;
+            const repo_create=context.payload.pull_request.head.repo.created_at;
+            const repo_update=context.payload.pull_request.head.repo.updated_at;
+            const repo_push=context.payload.pull_request.head.repo.pushed_at;
+            const contri=context.payload.pull_request.head.repo.contributors_url
+            const base=context.payload.pull_request.base.ref;
+            
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Welcome to the repository! Thank you for your contribution'
+            })
+            
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '# Statistics \nHead Branch: '+pullRequest+'\nBase Branch: '+base+'\nCreated at: '+create+'\nUpdated at: '+update+'\nRepository created at: '+repo_create+'\nRepository last updated at: '+repo_update+'\nRepository pushed at: '+repo_push
+            })
