@@ -1,13 +1,15 @@
-name: Greetings
-
-on: [pull_request, issues]
-
+name: Auto Comment
+on: [issues, pull_request]
 jobs:
-  greeting:
+  run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Thank you for your first issue here! @Ritika-Das will look into this issue soon :)'
-        pr-message: 'Thank you for your first pull request here! @Ritika-Das will check the changes to be merged soon :)'
+      - uses: bubkoo/auto-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issuesOpened: >
+            Thank you for raising a issue @${author}! @Ritika-Das will try and get back to you as soon as possible :)
+            Please make sure you have given as much context as possible.
+          pullRequestOpened: >
+            Thank you for your pull request @${author}! 
+            Please make sure you have followed our contributing guidelines. @Ritika-Das will check the changes to be merged soon :)
