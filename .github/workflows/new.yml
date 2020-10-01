@@ -37,7 +37,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Welcome to the repository! Thank you for your contribution'
+              body: 'Welcome to the repository! Again, thank you for your contribution @${{ github.actor }}!'
             })
             
             await github.issues.createComment({
