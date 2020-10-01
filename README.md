@@ -65,7 +65,7 @@ There can be hundreds of algorithms to shape your task. Here are ones for you to
 
 # Contribution Guidelines<br>
 * Anyone is free to contribute to this repository.<br>
-* You can submit your DSA-related code in the respective language folders (i.e. C, C++, Java, Python etc.),
+* You can submit your DSA-related code in the respective language folders (i.e. C, C++, C#, Java, Python etc.),
 as this will help to maintain code effectively.<br>
 * If you don't see the language you are comfortable with for creating a new file, fork this repository to add a folder in your fork, add
 your code file, and then submit a pull request.
