@@ -10,4 +10,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: 'Thank you for raising an issue @${{ github.actor }}! Ritika will look into them as soon as possible :)'
-        pr-message: 'Thank you for your pull request @${{ github.actor }} and welcome to the repo! Ritika will check changes to be merged as soon as possible :)'
+        pr-message: '... and it seems to be your first PR here @${{ github.actor }}! We are happy to have you on board. :)'
