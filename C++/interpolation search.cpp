@@ -26,7 +26,8 @@ int main(){
 	for(int i=0;i<n;i++){
 		cin>>arr[i];
 	}
-	int x = 7;
+	int x;
+        cin>>x;
 	cout<<"\n index "<<interpolation(arr,0,n-1,x)<<endl;
 	return 0;
 	
